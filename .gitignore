@@ -1,0 +1,9 @@
+.vscode
+.haxelib
+export
+dump
+tests/*
+!tests/Main.hx
+!tests/Typewriter.hx
+!tests/README.md
+release.zip
