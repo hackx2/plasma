@@ -1,0 +1,40 @@
+package plasma.types;
+
+enum Style {
+	Reset;
+	Bold;
+	Dim;
+	Italic;
+	Underline;
+	DoubleUnderline;
+	Overline;
+	Inverse;
+	Hidden;
+	Strikethrough;
+	Visible;
+	FgBasic(c:Int);
+	FgBright(c:Int);
+	FgAnsi256(c:Int);
+	FgRgb(r:Int, g:Int, b:Int);
+	BgBasic(c:Int);
+	BgBright(c:Int);
+	BgAnsi256(c:Int);
+	BgRgb(r:Int, g:Int, b:Int);
+	SlowBlink;
+	RapidBlink;
+	Framed;
+	Encircled;
+	Bell;
+	HideCursor;
+	ShowCursor;
+	SaveCursor;
+	RestoreCursor;
+	ClearScreen;
+	ClearLine;
+	ClearScroll;
+	ScrollUp;
+	ScrollDown;
+	EnterAltBuffer;
+	LeaveAltBuffer;
+	Custom(cmd:String);
+}

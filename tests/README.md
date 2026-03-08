@@ -1,0 +1,1 @@
+to run: `haxe -cp tests -m <SCRIPT_NAME> --interp`
