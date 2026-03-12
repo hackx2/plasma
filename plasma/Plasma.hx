@@ -47,26 +47,26 @@ abstract Plasma(Impl) {
 	/**
 	 * A **readonly** list of all available modifiers.
 	 */
-	public static var modifiers(get, never):ReadonlyPresetArray;
+	public static var modifiers(get, never):ReadOnlyPresetArray;
 	@:noCompletion 
-	static function get_modifiers():ReadonlyPresetArray {
+	static function get_modifiers():ReadOnlyPresetArray {
 		return Constants.presets.filter(_ -> _.match(Modifier(_, _, _)));
 	}
 	/**
 	 * A **readonly** list of all available foreground colors.
 	 */
-	public static var foregroundColors(get, never):ReadonlyPresetArray;
+	public static var foregroundColors(get, never):ReadOnlyPresetArray;
 	@:noCompletion 
-	static function get_foregroundColors():ReadonlyPresetArray {
+	static function get_foregroundColors():ReadOnlyPresetArray {
 		return Constants.presets.filter(_ -> _.match(Foreground(_, _, _)));
 	}
 
 	/**
 	 * A **readonly** list of all available background colors.
 	 */
-	public static var backgroundColors(get, never):ReadonlyPresetArray;
+	public static var backgroundColors(get, never):ReadOnlyPresetArray;
 	@:noCompletion 
-	static function get_backgroundColors():ReadonlyPresetArray {
+	static function get_backgroundColors():ReadOnlyPresetArray {
 		return Constants.presets.filter(_ -> _.match(Background(_, _, _)));
 	}
 
@@ -174,6 +174,24 @@ abstract Plasma(Impl) {
 		return style.apply(str);
 	}
 
+	@:op(A += B)
+	inline static function addToInstance(A:Plasma, B:Plasma):Plasma {
+		A._supportLevel = B._supportLevel;
+		A.styles = A.styles.concat(B.styles);
+		return A;
+	}
+
+	@:op(A -= B)
+	inline static function subtractFromInstance(A:Plasma, B:Plasma):Plasma {
+		var len:Int = A.styles.length;
+		while (len-- > 0) {
+			if (B.styles.contains(A.styles[len])) {
+				A.styles.splice(len, 1);
+			}
+		}
+		return A;
+	}
+
 	@:op(A + B)
 	inline static function mergeInstances(A:Plasma, B:Plasma):Plasma {
 		final p:Plasma = new Plasma();
@@ -185,10 +203,18 @@ abstract Plasma(Impl) {
 		return p;
 	}
 
+	@:op(A - B)
+	inline static function subtractInstances(A:Plasma, B:Plasma):Plasma {
+		final p:Plasma = new Plasma();
+		p._supportLevel = A._supportLevel;
+		p.styles = [for (s in A.styles) if (!B.styles.contains(s)) s];
+		return p;
+	}
+
 	inline function applyStyle(style:Style):Plasma {
 		return cast(this : Impl).apply(style);
 	}
 }
 
 @:noCompletion
-private typedef ReadonlyPresetArray = haxe.ds.ReadOnlyArray<Preset>;
+private typedef ReadOnlyPresetArray = haxe.ds.ReadOnlyArray<Preset>;
