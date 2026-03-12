@@ -18,7 +18,6 @@ class Typewriter {
 
 	static function main() {
 		Terminal.hideCursor();
-		Terminal.saveCursor();
 
 		final tmwr = new Timer(50);
 		tmwr.run = () -> {
