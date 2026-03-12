@@ -177,16 +177,14 @@ abstract Plasma(Impl) {
 	@:op(A + B)
 	inline static function mergeInstances(A:Plasma, B:Plasma):Plasma {
 		final p:Plasma = new Plasma();
-		p.styles = A.styles.copy();
+		p.styles = A.styles.concat(B.styles);
 		p._supportLevel = B._supportLevel;
-		for (i in B.styles) {
-			p.styles.push(i);
-		}
 		return p;
 	}
 
 	inline function applyStyle(style:Style):Plasma {
-		return cast(this : Impl).apply(style);
+		this.apply(style);
+		return abstract;
 	}
 }
 

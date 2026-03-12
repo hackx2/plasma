@@ -35,8 +35,7 @@ final class Impl {
 	/**
 	 * Appends the provided style to the existing list.
 	 */
-	public function apply(style:Style):Impl {
-		final s:Array<Style> = this.styles.copy(); s.push(style);
-		return new Impl(s, _supportLevel);
+	public function apply(style:Style):Void {
+		this.styles.push(style);
 	}
 }
