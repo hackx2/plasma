@@ -1,6 +1,6 @@
 package plasma.types;
 
-enum abstract SupportLevel(Int) from Int to Int {
+#if (haxe_ver >= 4.0) enum #else @:enum #end abstract SupportLevel(Int) from Int to Int {
 	/** Automatically detect the support level.*/
 	final AUTO_DETECT:SupportLevel = -1;
 
