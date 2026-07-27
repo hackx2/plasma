@@ -6,4 +6,5 @@ tests/*
 !tests/Main.hx
 !tests/Typewriter.hx
 !tests/README.md
+!tests/build.hxml
 release.zip

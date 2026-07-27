@@ -1,0 +1,5 @@
+-lib plasma
+-cp tests
+-main Main
+-hl export/hl/main.hl
+--cmd hl export/hl/main.hl
