@@ -2,9 +2,9 @@
     "name": "plasma",
     "license": "MIT",
     "url": "https://github.com/hackx2/plasma",
-    "version": "1.0.0",
-    "description": "An easy-to-use composable ANSI styling API",
-    "releasenote": "Initial Release",
-    "tags": ["terminal", "styling", "ansi"],
+    "version": "1.1.0",
+    "description": "A simple to use ANSI styling API",
+    "releasenote": "Fixed Haxe 5",
+    "tags": ["terminal", "styling", "ansi", "color", "coloring"],
     "contributors": ["hackx2"]
 }

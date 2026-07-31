@@ -3,7 +3,7 @@
 
 ### Plasma
 
-A type-safe, native Haxe library for terminals, providing a [Chalk](https://github.com/chalk/chalk)-like, easy-to-use, composable [ANSI](https://en.wikipedia.org/wiki/ANSI_escape_code) API, and additional cursor, screen, and buffer utilities. 
+A native Haxe library for terminals, providing a [Chalk](https://github.com/chalk/chalk)-like, easy-to-use, composable [ANSI](https://en.wikipedia.org/wiki/ANSI_escape_code) API. 
 <br>
 
 <br clear="left"/>
