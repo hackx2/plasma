@@ -17,7 +17,7 @@ xcopy plasma release\plasma /E /I /Y
 xcopy docs release\docs /E /I /Y
 
 pushd release
-7za a -tzip ..\release.zip *
+7z a -tzip ..\release.zip *
 popd
 haxelib submit release.zip
 del /q release.zip

@@ -27,4 +27,16 @@ abstract Ansi(String) from String to String {
 	static inline function add(a:Ansi, b:Ansi):Ansi {
 		return new Ansi(cast(a, String) + cast(b, String)); // nuh uh...
 	}
+
+	@:op(A + B)
+	@:noCompletion
+	static inline function add_int(a:Ansi, b:Int):Ansi {
+		return new Ansi(cast(a, String) + Std.string(b));
+	}
+
+	@:op(A + B)
+	@:noCompletion
+	static inline function add_float(a:Ansi, b:Float):Ansi {
+		return new Ansi(cast(a, String) + Std.string(b));
+	}
 }

@@ -32,7 +32,7 @@ final class PresetBuilder {
 			for (alias in stylePresets) {
 				fields.push({
 					name: alias,
-					access: [APublic, AFinal],
+					access: [APublic],
 					kind: FProp("get", "never", macro :Plasma),
 					pos: pos,
 					doc: '_${preset.getName()}_: apply `${stylePresets.length > 1 ? alias == name ? '$alias' : '$alias ($name)' : alias}` style.',
